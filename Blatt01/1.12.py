@@ -19,3 +19,4 @@ ax.set_xlabel('Ausbildungsdauer X')
 ax.set_ylabel('Jahresgehalt Y [1000€]')
 ax.legend(facecolor='white')
 plt.show()
+
