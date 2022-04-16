@@ -1,5 +1,7 @@
 import hashlib
 import sys
+import time
+start_time = time.time()
 
 chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
          "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
@@ -19,4 +21,5 @@ for first in chars:
 
                     if sha1.hexdigest() == pw_hash:
                         exit_string = "Passwort: " + password
+                        print("--- %s seconds ---" % (time.time() - start_time))
                         sys.exit(exit_string)
