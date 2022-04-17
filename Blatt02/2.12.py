@@ -10,6 +10,16 @@ chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "
 pw_hash = "39228d06a988045c5caaa97bf0a6158893d51862"
 #pw_hash = "df51e37c269aa94d38f93e537bf6e2020b21406c"
 
+counter = 0
+for first in chars:
+    for second in chars:
+        for third in chars:
+            for fourth in chars:
+                for fifth in chars:
+                    counter += 1
+
+print("Anzahl Möglichkeiten:", counter)
+
 for first in chars:
     for second in chars:
         for third in chars:
@@ -17,7 +27,7 @@ for first in chars:
                 for fifth in chars:
                     password = first + second + third + fourth + fifth
                     sha1 = hashlib.sha1(password.encode("utf-8"))
-                    print(password)
+                    #print(password)
 
                     if sha1.hexdigest() == pw_hash:
                         exit_string = "Passwort: " + password
