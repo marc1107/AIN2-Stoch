@@ -21,5 +21,6 @@ print("a)", fak(20))
 
 # b)
 print("\nb)", fak2(20))
+print("\nb)", fak(10) * fak(10))
 
 print("\nc)", 10 * fak(10) * fak(10))
