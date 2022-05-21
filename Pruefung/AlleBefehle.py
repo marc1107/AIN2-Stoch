@@ -70,6 +70,3 @@ def fak(n: int):
         return n * fak(n - 1)
     else:
         return 1
-
-
-
