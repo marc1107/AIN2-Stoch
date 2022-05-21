@@ -1,7 +1,7 @@
 import numpy as np
-import statistics as stat
+import statistics as stats
 import matplotlib.pyplot as plt
-import scipy.stats as stats
+import scipy.stats
 
 # Array erstellen:
 list = [2, 4, 3, 1, 2, 4, 2, 2, 2, 3]
@@ -18,7 +18,7 @@ median = np.median(list)
 # Modalwert berechnen (hier kann es mehrere geben, gibt Array zurück):
 mode = stats.multimode(list)
 # Modalwert berechnen (wenn es genau 1 ist, unschön!):
-mode = stat.mode(list)
+mode = stats.mode(list)
 
 # Quantile (bzw. Percentile) berechnen:
 percentile = np.percentile(list, 25)  # geht auch mit 10 usw.
@@ -41,7 +41,7 @@ varianz = np.var(list)
 corrcoef = np.corrcoef(nparray1, nparray2)
 
 # lineare Reggressionsfunktion:
-slope, intercept, r, p, stderr = stats.linregress(nparray1, nparray2)
+slope, intercept, r, p, stderr = scipy.stats.linregress(nparray1, nparray2)
 line = f'Regression line: y={intercept:.2f}+{slope:.2f}x, r={r:.2f}'
 
 # Punkte von Array und Reggressionslinie mit Legende plotten:
