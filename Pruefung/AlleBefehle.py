@@ -16,7 +16,7 @@ mean = np.mean(list)
 median = np.median(list)
 
 # Modalwert berechnen (hier kann es mehrere geben, gibt Array zurück):
-mode = stats.multimode(list)
+modearr = stats.multimode(list)
 # Modalwert berechnen (wenn es genau 1 ist, unschön!):
 mode = stats.mode(list)
 
