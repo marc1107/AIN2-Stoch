@@ -46,10 +46,17 @@ def corrcoef(arr1, arr2):
 
 
 def linregress(arr1, arr2):
-    return scipy.stats.linregress(arr1, arr2)
+    # Convert to numpy array
+    nparr1 = np.asarray(arr1)
+    nparr2 = np.asarray(arr2)
+    return scipy.stats.linregress(nparr1, nparr2)
 
 
-def plotlinregress(arr1, arr2, lbl_x, lbl_y):
+def plotlinregress(narr1, narr2, lbl_x, lbl_y):
+    # Convert to numpy array
+    arr1 = np.asarray(narr1)
+    arr2 = np.asarray(narr2)
+
     slope, intercept, r, p, stderr = linregress(arr1, arr2)
     line = f'Regression line: y={intercept:.2f}+{slope:.2f}x, r={r:.2f}'
 
@@ -61,8 +68,3 @@ def plotlinregress(arr1, arr2, lbl_x, lbl_y):
     ax.set_ylabel(lbl_y)
     ax.legend(facecolor='white')
     plt.show()
-
-
-nparray1 = np.array([9, 13, 15, 18, 20])
-nparray2 = np.array([18000, 37000, 61000, 125000, 59000])
-plotlinregress(nparray1, nparray2, 'Ausbildungsdauer X', 'Jahresgehalt Y [1000€]')
