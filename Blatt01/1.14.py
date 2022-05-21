@@ -16,7 +16,7 @@ speed_cost = np.empty(len(speed), dtype=float)
 for i in range(0, len(cargocap)):
     cargo_cost[i] = round(cargocap[i] / costs[i], 4)
 
-# Brechnung >Speed/Credit
+# Berechnung >Speed/Credit
 for i in range(0, len(speed)):
     speed_cost[i] = round(speed[i] / costs_s[i], 4)
 
@@ -40,7 +40,7 @@ ax.set_ylabel("cargo/credit")
 for i, txt in enumerate(cargo_cost):
     ax.annotate(txt, (spaceships[i], cargo_cost[i]))
 
-#plt.scatter(spaceships, cargo_cost)
+# plt.scatter(spaceships, cargo_cost)
 plt.title("cargo capacity per credit")
 plt.show()
 
