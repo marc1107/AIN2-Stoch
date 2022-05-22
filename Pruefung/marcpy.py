@@ -46,6 +46,13 @@ def corrcoef(arr1, arr2):
     return np.corrcoef(arr1, arr2)
 
 
+def fak(n: int):
+    if n > 0:
+        return n * fak(n - 1)
+    else:
+        return 1
+
+
 def linregress(arr1, arr2):
     # Convert to numpy array
     nparr1 = np.asarray(arr1)
