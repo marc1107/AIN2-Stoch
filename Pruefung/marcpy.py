@@ -30,6 +30,7 @@ def span(arr):
     if len(arr) > 0:
         arr.sort()
         return arr[len(arr) - 1] - arr[0]
+    print("Array muss mindestens 1 Zahl beinhalten!")
     return 0
 
 
