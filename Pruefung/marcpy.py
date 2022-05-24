@@ -76,3 +76,58 @@ def plotlinregress(narr1, narr2, lbl_x, lbl_y):
     ax.set_ylabel(lbl_y)
     ax.legend(facecolor='white')
     plt.show()
+
+
+# Liefert ein mehrdimensionales Array zurück.
+# Für jeden Eintrag ist der erste Eintrag die Zahl und der zweite die zugehörige Häufigkeit
+def abs_haeufigkeit(arr):
+    abs = []
+    if len(arr) > 0:
+        arr_sorted = []
+        # Array Einträge kopieren, ohne das richtige Array zu verändern
+        for i in arr:
+            arr_sorted.append(i)
+        arr_sorted.sort()
+
+        number = arr_sorted[0]
+        counter = 0
+        for i in arr_sorted:
+            if number != i:
+                abs.append([number, counter])
+                number = i
+                counter = 1
+            else:
+                counter += 1
+
+        abs.append([number, counter])
+
+    return abs
+
+
+def rel_haeufigkeit(arr):
+    rel = []
+    if len(arr) > 0:
+        abs = abs_haeufigkeit(arr)
+        ges = 0
+        for i in abs:
+            ges += i[1]
+
+        for i in abs:
+            number = i[0]
+            reldiv = i[1]/ges
+            rel.append([number, reldiv])
+
+    return rel
+
+
+def kum_haeufigkeit(arr):
+    kum = []
+    if len(arr) > 0:
+        rel = rel_haeufigkeit(arr)
+        kum_counter = 0
+        for i in rel:
+            number = i[0]
+            kum_counter += i[1]
+            kum.append([number, kum_counter])
+
+    return kum
