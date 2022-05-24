@@ -90,11 +90,65 @@ def plotlinregress():
     mp.plotlinregress(arr1, arr2, lbl_x, lbl_y)
 
 
+def abs_haeufigkeit(arr):
+    print("Absolute Häufigkeiten:", mp.abs_haeufigkeit(arr))
+
+
+def rel_haeufigkeit(arr):
+    print("Relative Häufigkeiten:", mp.rel_haeufigkeit(arr))
+
+
+def kum_haeufigkeit(arr):
+    print("Kumulierte Häufigkeiten:", mp.kum_haeufigkeit(arr))
+
+
+def haeufigkeit():
+    print("Welche Häufigkeit soll berechnet werden?\n1: absolute Häufigkeit"
+          "\n2: relative Häufigkeit\n3: kumulierte Häufigkeit")
+    f = int(input())
+    print("Array eingeben:")
+    arr = input()
+    arr = list(map(int, arr.split(' ')))
+
+    if f == 1:
+        abs_haeufigkeit(arr)
+    elif f == 2:
+        rel_haeufigkeit(arr)
+    elif f == 3:
+        kum_haeufigkeit(arr)
+    else:
+        print("Wrong function")
+        return
+
+    loop = 1;
+    while loop == 1:
+        print("Soll eine weitere Häufigkeit berechnet werden?\n"
+              "J: ja\nN: nein")
+        yes_no = input()
+        if yes_no == "j" or yes_no == "J":
+            print("Welche?\n1: absolute Häufigkeit"
+                  "\n2: relative Häufigkeit\n3: kumulierte Häufigkeit")
+            f = int(input())
+
+            if f == 1:
+                abs_haeufigkeit(arr)
+            elif f == 2:
+                rel_haeufigkeit(arr)
+            elif f == 3:
+                kum_haeufigkeit(arr)
+            else:
+                print("Wrong function")
+                return
+        else:
+            return
+
+
 print('Funktion auswählen:\n1: Mittelwert\n2: Median\n3: Modalwert'
       '\n4: Quantile/Percentile\n5: Interquartilabstand'
       '\n6: Spannweite\n7: empirische Standardabweichung'
       '\n8: Varianz\n9: Korrelationskoeffizient\n10: Fakultät'
-      '\n11: lineare Reggressionsfunktion\n12:')
+      '\n11: lineare Reggressionsfunktion\n12: Häufigkeiten (absolut, relativ, kumuliert)'
+      '\n13: ')
 
 # Arrays werden in den Funktionen zu Numpy Arrays konvertiert,
 # können also als normale Listen übergeben werden!
@@ -122,5 +176,7 @@ elif func_code == 10:
     fak()
 elif func_code == 11:
     plotlinregress()
+elif func_code == 12:
+    haeufigkeit()
 else:
     print("Funktion nicht verfügbar")
