@@ -81,7 +81,7 @@ def plotlinregress(narr1, narr2, lbl_x, lbl_y):
 # Liefert ein mehrdimensionales Array zurück.
 # Für jeden Eintrag ist der erste Eintrag die Zahl und der zweite die zugehörige Häufigkeit
 def abs_haeufigkeit(arr):
-    abs = []
+    absolute = []
     if len(arr) > 0:
         arr_sorted = []
         # Array Einträge kopieren, ohne das richtige Array zu verändern
@@ -93,26 +93,26 @@ def abs_haeufigkeit(arr):
         counter = 0
         for i in arr_sorted:
             if number != i:
-                abs.append([number, counter])
+                absolute.append([number, counter])
                 number = i
                 counter = 1
             else:
                 counter += 1
 
-        abs.append([number, counter])
+        absolute.append([number, counter])
 
-    return abs
+    return absolute
 
 
 def rel_haeufigkeit(arr):
     rel = []
     if len(arr) > 0:
-        abs = abs_haeufigkeit(arr)
+        absolute = abs_haeufigkeit(arr)
         ges = 0
-        for i in abs:
+        for i in absolute:
             ges += i[1]
 
-        for i in abs:
+        for i in absolute:
             number = i[0]
             reldiv = i[1]/ges
             rel.append([number, reldiv])

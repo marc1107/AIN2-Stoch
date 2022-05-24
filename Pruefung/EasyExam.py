@@ -120,7 +120,7 @@ def haeufigkeit():
         print("Wrong function")
         return
 
-    loop = 1;
+    loop = 1
     while loop == 1:
         print("Soll eine weitere Häufigkeit berechnet werden?\n"
               "J: ja\nN: nein")
