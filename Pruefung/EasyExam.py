@@ -148,7 +148,7 @@ print('Funktion auswählen:\n1: Mittelwert\n2: Median\n3: Modalwert'
       '\n6: Spannweite\n7: empirische Standardabweichung'
       '\n8: Varianz\n9: Korrelationskoeffizient\n10: Fakultät'
       '\n11: lineare Reggressionsfunktion\n12: Häufigkeiten (absolut, relativ, kumuliert)'
-      '\n13: ')
+      '\n13: ...')
 
 # Arrays werden in den Funktionen zu Numpy Arrays konvertiert,
 # können also als normale Listen übergeben werden!
