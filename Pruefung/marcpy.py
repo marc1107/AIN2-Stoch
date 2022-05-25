@@ -131,3 +131,11 @@ def kum_haeufigkeit(arr):
             kum.append([number, kum_counter])
 
     return kum
+
+
+def bincoef(n: int, k: int):
+    return fak(n)/(fak(k)*fak(n-k))
+
+
+def binomialverteilt(n: int, t: int, p: float, q: float):
+    return bincoef(n, t) * pow(p, t) * pow(q, n-t)

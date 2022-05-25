@@ -143,12 +143,51 @@ def haeufigkeit():
             return
 
 
+def verteilung():
+    print("Was soll berechnet werden?\n1: Binomialkoeffizient\n2: binomial verteilt"
+          "\n3: ...")
+    func = int(input())
+    n = 0
+    k = 0
+
+    if func == 1:
+        bincoef()
+    elif func == 2:
+        binomialverteilt()
+    else:
+        print("Wrong function")
+        return
+
+
+def bincoef():
+    print("n für (n über k) eingeben:")
+    n = int(input())
+    print("k für (n über k) eingeben:")
+    k = int(input())
+    bincoef = mp.bincoef(n, k)
+    print("Binomialkoeffizient für n = " + n + " und k = " + k + ":"
+          + bincoef)
+
+
+def binomialverteilt():
+    print("Formel: (n über t) * p^t * q^(n-t)")
+    print("n eingeben:")
+    n = int(input())
+    print("t eingeben:")
+    t = int(input())
+    print("p eingeben:")
+    p = int(input())
+    print("q eingeben:")
+    q = int(input())
+    print("Binomial verteilt P(X = t):", mp.binomialverteilt(n, t, p, q))
+
+
 print('Funktion auswählen:\n1: Mittelwert\n2: Median\n3: Modalwert'
       '\n4: Quantile/Percentile\n5: Interquartilabstand'
       '\n6: Spannweite\n7: empirische Standardabweichung'
       '\n8: Varianz\n9: Korrelationskoeffizient\n10: Fakultät'
       '\n11: lineare Reggressionsfunktion\n12: Häufigkeiten (absolut, relativ, kumuliert)'
-      '\n13: ...')
+      '\n13: Verteilung')
 
 # Arrays werden in den Funktionen zu Numpy Arrays konvertiert,
 # können also als normale Listen übergeben werden!
@@ -178,5 +217,7 @@ elif func_code == 11:
     plotlinregress()
 elif func_code == 12:
     haeufigkeit()
+elif func_code == 13:
+    verteilung()
 else:
     print("Funktion nicht verfügbar")
