@@ -137,5 +137,36 @@ def bincoef(n: int, k: int):
     return fak(n)/(fak(k)*fak(n-k))
 
 
-def binomialverteilt(n: int, t: int, p: float, q: float):
-    return bincoef(n, t) * pow(p, t) * pow(q, n-t)
+# gibt Array mit allen binomial verteilten Werten von 0 bis n zurück
+# also alle möglichen t's (immer die ersten Werte im mehrdimensionalen Array)
+def binomialverteilt(n: int, p: float, q: float):
+    arr = []
+    if n > 0:
+        for t in range(0, n+1):
+            arr.append([t, bincoef(n, t) * pow(p, t) * pow(q, n-t)])
+    return arr
+
+
+def binmindestens(arr, x: int):
+    result = 0
+    for pack in arr:
+        if pack[0] >= x:
+            result += pack[1]
+    return result
+
+
+def binhoechstens(arr, x: int):
+    result = 0
+    for pack in arr:
+        if pack[0] <= x:
+            result += pack[1]
+    return result
+
+
+def binminhoe(arr, x: int, y: int):
+    result = 0
+    for pack in arr:
+        if x <= pack[0] <= y:
+            result += pack[1]
+    return result
+

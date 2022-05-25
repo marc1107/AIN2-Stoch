@@ -147,8 +147,6 @@ def verteilung():
     print("Was soll berechnet werden?\n1: Binomialkoeffizient\n2: binomial verteilt"
           "\n3: ...")
     func = int(input())
-    n = 0
-    k = 0
 
     if func == 1:
         bincoef()
@@ -165,21 +163,46 @@ def bincoef():
     print("k für (n über k) eingeben:")
     k = int(input())
     bincoef = mp.bincoef(n, k)
-    print("Binomialkoeffizient für n = " + n + " und k = " + k + ":"
-          + bincoef)
+    print("Binomialkoeffizient für n = {} und k = {}: {}".format(n, k, bincoef))
 
 
 def binomialverteilt():
     print("Formel: (n über t) * p^t * q^(n-t)")
+    print("Es werden alle t's berechnet!")
     print("n eingeben:")
     n = int(input())
-    print("t eingeben:")
-    t = int(input())
-    print("p eingeben:")
-    p = int(input())
-    print("q eingeben:")
-    q = int(input())
-    print("Binomial verteilt P(X = t):", mp.binomialverteilt(n, t, p, q))
+    print("p eingeben (Kommazahl mit Punkt getrennt!):")
+    p = float(input())
+    print("q eingeben (Kommazahl mit Punkt getrennt!):")
+    q = float(input())
+    print("Binomial verteilt P(X = t):")
+    arr = mp.binomialverteilt(n, p, q)
+    for pack in arr:
+        print("t: P(X = {}) = {}".format(pack[0], pack[1]))
+
+    loop = 1
+    while loop == 1:
+        print("\nSoll noch etwas mit diesen Werten berechnet werden?"
+              "\n1: P(mindestens x)\n2: P(höchstens x)"
+              "\n3: P(mindestens x und höchstens y)\n4: nein")
+        func = int(input())
+        if func == 1:
+            print("x eingeben:")
+            x = int(input())
+            print("P(mindestens {}) = {}".format(x, mp.binmindestens(arr, x)))
+        elif func == 2:
+            print("x eingeben:")
+            x = int(input())
+            print("P(höchstens {}) = {}".format(x, mp.binhoechstens(arr, x)))
+        elif func == 3:
+            print("x (mindestens) eingeben:")
+            x = int(input())
+            print("y (höchstens) eingeben:")
+            y = int(input())
+            print("P(höchstens {}) = {}".format(x, mp.binminhoe(arr, x, y)))
+        else:
+            return
+
 
 
 print('Funktion auswählen:\n1: Mittelwert\n2: Median\n3: Modalwert'
