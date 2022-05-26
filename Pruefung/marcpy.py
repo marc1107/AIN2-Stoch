@@ -200,3 +200,8 @@ def geomerwartung(p: float):
 def geomvar(p: float):
     return (1 - p) / math.sqrt(p)
 
+
+def poissonverteilt(x: int, lbd):
+    e = math.e
+    return pow(lbd, x) / fak(x) * pow(e, -lbd)
+

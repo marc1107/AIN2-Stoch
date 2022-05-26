@@ -146,7 +146,7 @@ def haeufigkeit():
 def verteilung():
     print("Was soll berechnet werden?\n1: Bernoulli-verteilt"
           "\n2: Binomialkoeffizient\n3: binomial-verteilt"
-          "\n4: geometrisch-verteilt.")
+          "\n4: geometrisch-verteilt\n5: poisson-verteilt")
     func = int(input())
 
     if func == 1:
@@ -157,6 +157,8 @@ def verteilung():
         binomialverteilt()
     elif func == 4:
         geomverteilt()
+    elif func == 5:
+        poissonverteilt()
     else:
         print("Wrong function")
         return
@@ -250,6 +252,34 @@ def geomverteilt():
     print("Geometrisch Erwartungswert:", mp.geomerwartung(p))
     print("Geometrisch Varianz:", mp.geomvar(p))
 
+
+def poissonverteilt():
+    print("Poissonverteilt Formel: lambda^x / x! * e^(-lambda)")
+    print("Lambda = gegebene Wahrscheinlichkeit/Anzahl")
+    print("x = zu prüfende Anzahl für P(X = x)")
+    print("Lambda eingeben:")
+    lbd = float(input())
+    if lbd < 0:
+        print("Lambda muss größer als 0 sein!")
+        return
+
+    print("x eingeben:")
+    x = int(input())
+
+    print("poissonverteilt P(X = {}) = {}".format(x, mp.poissonverteilt(x, lbd)))
+    print("Poisson Erwartungswert = Lambda:", lbd)
+    print("Poisson Varianz = Lambda:", lbd)
+
+    loop = 1
+    while loop == 1:
+        print("Mit anderem x erneut rechnen?\nJ: ja\nN: nein")
+        yes_no = input()
+        if yes_no == "j" or yes_no == "J":
+            print("x eingeben:")
+            x = int(input())
+            print("poissonverteilt P(X = {}) = {}".format(x, mp.poissonverteilt(x, lbd)))
+        else:
+            return
 
 
 print('Funktion auswählen:\n1: Mittelwert\n2: Median\n3: Modalwert'
