@@ -7,3 +7,5 @@ for i in range(0, 1000):
     if counter >= 0.99:
         print("\n", i)
         break
+
+# Test
