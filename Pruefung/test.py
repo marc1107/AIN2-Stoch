@@ -1,14 +1,9 @@
 import marcpy as mp
-list = [5,2,6,3,7,8,3,2]
-list2 = []
-# list2 = list
-for i in list:
-    list2.append(i)
-list2.sort()
 
-# print(list)
-# print(list2)
+counter = 0
 
-print("abs:", mp.abs_haeufigkeit(list))
-print("rel:", mp.rel_haeufigkeit(list))
-print("cum:", mp.kum_haeufigkeit(list))
+for i in range(0, 1000):
+    counter += mp.binomialverteilt(1000, 0.005, i)
+    if counter >= 0.99:
+        print("\n", i)
+        break

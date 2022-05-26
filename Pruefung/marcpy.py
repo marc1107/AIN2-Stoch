@@ -47,11 +47,22 @@ def corrcoef(arr1, arr2):
     return np.corrcoef(arr1, arr2)
 
 
-def fak(n: int):
+def fak(n: int, x: int):
     if n > 0:
         return n * fak(n - 1)
     else:
         return 1
+
+
+def fak(n: int):
+    if n > 0:
+        ergebnis = n
+        for i in range(1, n):
+            ergebnis = ergebnis * (n-i)
+    else:
+        return 1
+
+    return ergebnis
 
 
 def linregress(arr1, arr2):
@@ -162,6 +173,14 @@ def binomialverteilt(n: int, p: float):
         for t in range(0, n+1):
             arr.append([t, bincoef(n, t) * pow(p, t) * pow(q, n-t)])
     return arr
+
+
+def binomialverteilt(n: int, p: float, t: int):
+    result = 0
+    q = 1 - p
+    if n > 0:
+        result = bincoef(n, t) * pow(p, t) * pow(q, n-t)
+    return result
 
 
 def binerwartung(n: int, p: float):
