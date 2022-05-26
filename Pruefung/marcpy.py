@@ -1,4 +1,5 @@
 # Program for all the commands used in Stochastik
+import math
 
 import numpy as np
 import statistics as stats
@@ -137,14 +138,29 @@ def bincoef(n: int, k: int):
     return fak(n)/(fak(k)*fak(n-k))
 
 
+def bernoulliverteilt(p: float):
+    q = 1 - p
+    arr = [[1, p], [0, q]]
+    return arr
+
+
 # gibt Array mit allen binomial verteilten Werten von 0 bis n zurück
 # also alle möglichen t's (immer die ersten Werte im mehrdimensionalen Array)
-def binomialverteilt(n: int, p: float, q: float):
+def binomialverteilt(n: int, p: float):
     arr = []
+    q = 1 - p
     if n > 0:
         for t in range(0, n+1):
             arr.append([t, bincoef(n, t) * pow(p, t) * pow(q, n-t)])
     return arr
+
+
+def binerwartung(n: int, p: float):
+    return n * p
+
+
+def binvar(n: int, p: float):
+    return n * p * (1 - p)
 
 
 def binmindestens(arr, x: int):
@@ -169,4 +185,18 @@ def binminhoe(arr, x: int, y: int):
         if x <= pack[0] <= y:
             result += pack[1]
     return result
+
+
+# Noch nicht fertig!!!
+def geomverteilt(x: int, p: float):
+    q = 1 - p
+    return p * pow(q, x - 1)
+
+
+def geomerwartung(p: float):
+    return 1/p
+
+
+def geomvar(p: float):
+    return (1 - p) / math.sqrt(p)
 

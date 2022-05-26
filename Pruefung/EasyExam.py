@@ -144,17 +144,39 @@ def haeufigkeit():
 
 
 def verteilung():
-    print("Was soll berechnet werden?\n1: Binomialkoeffizient\n2: binomial verteilt"
-          "\n3: ...")
+    print("Was soll berechnet werden?\n1: Bernoulli-verteilt"
+          "\n2: Binomialkoeffizient\n3: binomial-verteilt"
+          "\n4: geometrisch-verteilt.")
     func = int(input())
 
     if func == 1:
-        bincoef()
+        bernoulliverteilt()
     elif func == 2:
+        bincoef()
+    elif func == 3:
         binomialverteilt()
+    elif func == 4:
+        geomverteilt()
     else:
         print("Wrong function")
         return
+
+
+def bernoulliverteilt():
+    print("Bernoulli-verteilt")
+    print("Wahrscheinlichkeit p eingeben:")
+    inp = input()
+
+    if "/" in inp:
+        index = inp.find("/")
+        p = float(inp[0: index]) / float(inp[index + 1: len(inp)])
+    else:
+        p = float(inp)
+
+    arr = mp.bernoulliverteilt(p)
+
+    for pack in arr:
+        print("P(X = {}) = {}".format(pack[0], pack[1]))
 
 
 def bincoef():
@@ -171,14 +193,21 @@ def binomialverteilt():
     print("Es werden alle t's berechnet!")
     print("n eingeben:")
     n = int(input())
-    print("p eingeben (Kommazahl mit Punkt getrennt!):")
-    p = float(input())
-    print("q eingeben (Kommazahl mit Punkt getrennt!):")
-    q = float(input())
+    print("p eingeben (Kommazahl mit Punkt getrennt oder Bruch!):")
+    inp = input()
+
+    if "/" in inp:
+        index = inp.find("/")
+        p = float(inp[0: index]) / float(inp[index + 1: len(inp)])
+    else:
+        p = float(inp)
+
     print("Binomial verteilt P(X = t):")
-    arr = mp.binomialverteilt(n, p, q)
+    arr = mp.binomialverteilt(n, p)
     for pack in arr:
         print("t: P(X = {}) = {}".format(pack[0], pack[1]))
+    print("Binomial Erwartungswert:", mp.binerwartung(n, p))
+    print("Binomial Varianz:", mp.binvar(n, p))
 
     loop = 1
     while loop == 1:
@@ -202,6 +231,24 @@ def binomialverteilt():
             print("P(höchstens {}) = {}".format(x, mp.binminhoe(arr, x, y)))
         else:
             return
+
+
+def geomverteilt():
+    print("Formel: p * q^(x-1)")
+    print("Anzahl Versuche x für P(X = x) eingeben:")
+    x = int(input())
+    print("Wahrscheinlichkeit p eingeben (Kommazahl mit Punkt getrennt oder Bruch!):")
+    inp = input()
+
+    if "/" in inp:
+        index = inp.find("/")
+        p = float(inp[0: index]) / float(inp[index + 1: len(inp)])
+    else:
+        p = float(inp)
+
+    print("Geometrisch verteilt P(X = {}):{}".format(x, mp.geomverteilt(x, p)))
+    print("Geometrisch Erwartungswert:", mp.geomerwartung(p))
+    print("Geometrisch Varianz:", mp.geomvar(p))
 
 
 
