@@ -144,6 +144,15 @@ def bernoulliverteilt(p: float):
     return arr
 
 
+def bernoullierwartung(p: float):
+    return p
+
+
+def bernoullivar(p: float):
+    q = 1 - p
+    return p * q
+
+
 # gibt Array mit allen binomial verteilten Werten von 0 bis n zurück
 # also alle möglichen t's (immer die ersten Werte im mehrdimensionalen Array)
 def binomialverteilt(n: int, p: float):

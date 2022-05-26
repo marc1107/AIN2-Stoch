@@ -179,6 +179,8 @@ def bernoulliverteilt():
 
     for pack in arr:
         print("P(X = {}) = {}".format(pack[0], pack[1]))
+    print("Binomial Erwartungswert:", mp.bernoullierwartung(p))
+    print("Binomial Varianz:", mp.bernoullivar(p))
 
 
 def bincoef():
