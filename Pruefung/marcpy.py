@@ -175,7 +175,7 @@ def binomialverteilt(n: int, p: float):
     return arr
 
 
-def binomialverteilt(n: int, p: float, t: int):
+def binomialverteilt1(n: int, p: float, t: int):
     result = 0
     q = 1 - p
     if n > 0:
