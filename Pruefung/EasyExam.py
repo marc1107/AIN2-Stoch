@@ -5,13 +5,13 @@ def einzelwerte():
     print("Array eingeben:")
     arr = input()
     arr = list(map(int, arr.split(' ')))
-    print("Mittelwert: ", mp.mean(arr))
-    print("Median: ", mp.median(arr))
-    print("Modalwert(e): ", mp.mode(arr))
-    print("Interquartilabstand: ", mp.interquartilediff(arr))
-    print("Spannweite: ", mp.span(arr))
-    print("Standardabweichung: ", mp.std(arr))
-    print("Varianz: ", mp.var(arr))
+    print("Mittelwert (marcpy.mean(arr)): ", mp.mean(arr))
+    print("Median (marcpy.median(arr)): ", mp.median(arr))
+    print("Modalwert (marcpy.mode(arr)): ", mp.mode(arr))
+    print("Interquartilabstand (marcpy.interquartilefiff(arr)): ", mp.interquartilediff(arr))
+    print("Spannweite (marcpy.span(arr)): ", mp.span(arr))
+    print("Standardabweichung (marcpy.std(arr)): ", mp.std(arr))
+    print("Varianz (marcpy.var()): ", mp.var(arr))
     abs_haeufigkeit(arr)
     rel_haeufigkeit(arr)
     kum_haeufigkeit(arr)
@@ -39,7 +39,7 @@ def percentile(arr):
 
     print("Prozentzahl eingeben: ")
     pct = int(input())
-    print(pct, "% Percentile: ", mp.percentile(arr, pct))
+    print(pct, "% Percentile (marcpy.percentile(arr, pct)): ", mp.percentile(arr, pct))
 
 
 def corrcoef(arr):
@@ -51,13 +51,13 @@ def corrcoef(arr):
     print("Array 2 für Korrelationskoeffizienten eingeben:")
     arr2 = input()
     arr2 = list(map(int, arr2.split(' ')))
-    print("Korrelationskoeffizient: ", mp.corrcoef(arr, arr2))
+    print("Korrelationskoeffizient (marcpy.corrcoef(arr1, arr2)): ", mp.corrcoef(arr, arr2))
 
 
 def fak():
     print("Zahl für Fakultät eingeben:")
     n = int(input())
-    print("Fakultät: ", mp.fak(n))
+    print("Fakultät (marcpy.fak(n)): ", mp.fak(n))
 
 
 def plotlinregress():
@@ -76,15 +76,15 @@ def plotlinregress():
 
 
 def abs_haeufigkeit(arr):
-    print("Absolute Häufigkeiten:", mp.abs_haeufigkeit(arr))
+    print("Absolute Häufigkeiten (marcpy.abs_haeufigkeit(arr)):", mp.abs_haeufigkeit(arr))
 
 
 def rel_haeufigkeit(arr):
-    print("Relative Häufigkeiten:", mp.rel_haeufigkeit(arr))
+    print("Relative Häufigkeiten (marcpy.arel_haeufigkeit(arr)):", mp.rel_haeufigkeit(arr))
 
 
 def kum_haeufigkeit(arr):
-    print("Kumulierte Häufigkeiten:", mp.kum_haeufigkeit(arr))
+    print("Kumulierte Häufigkeiten (marcpy.kum_haeufigkeit(arr)):", mp.kum_haeufigkeit(arr))
 
 
 def haeufigkeit():
@@ -164,8 +164,8 @@ def bernoulliverteilt():
 
     for pack in arr:
         print("P(X = {}) = {}".format(pack[0], pack[1]))
-    print("Binomial Erwartungswert:", mp.bernoullierwartung(p))
-    print("Binomial Varianz:", mp.bernoullivar(p))
+    print("Binomial Erwartungswert (marcpy.bernoullierwartung(p)):", mp.bernoullierwartung(p))
+    print("Binomial Varianz (marcpy.bernoullivar(p)):", mp.bernoullivar(p))
 
 
 def bincoef():
@@ -174,7 +174,7 @@ def bincoef():
     print("k für (n über k) eingeben:")
     k = int(input())
     bincoef = mp.bincoef(n, k)
-    print("Binomialkoeffizient für n = {} und k = {}: {}".format(n, k, bincoef))
+    print("Binomialkoeffizient (marcpy.bincoef(n, k)) für n = {} und k = {}: {}".format(n, k, bincoef))
 
 
 def binomialverteilt():
@@ -191,12 +191,12 @@ def binomialverteilt():
     else:
         p = float(inp)
 
-    print("Binomial verteilt P(X = t):")
+    print("Binomial verteilt P(X = t) (marcpy.binomialverteilt(n, p)):")
     arr = mp.binomialverteilt(n, p)
     for pack in arr:
         print("t: P(X = {}) = {}".format(pack[0], pack[1]))
-    print("Binomial Erwartungswert:", mp.binerwartung(n, p))
-    print("Binomial Varianz:", mp.binvar(n, p))
+    print("Binomial Erwartungswert (marcpy.binerwartung(n, p)):", mp.binerwartung(n, p))
+    print("Binomial Varianz (marcpy.binvar(n, p)):", mp.binvar(n, p))
 
     loop = 1
     while loop == 1:
@@ -207,17 +207,17 @@ def binomialverteilt():
         if func == 1:
             print("x eingeben:")
             x = int(input())
-            print("P(mindestens {}) = {}".format(x, mp.binmindestens(arr, x)))
+            print("P(mindestens {}) = {} (marcpy.binmindestens(arr, x))".format(x, mp.binmindestens(arr, x)))
         elif func == 2:
             print("x eingeben:")
             x = int(input())
-            print("P(höchstens {}) = {}".format(x, mp.binhoechstens(arr, x)))
+            print("P(höchstens {}) = {} (marcpy.binhoechtsens(arr, x))".format(x, mp.binhoechstens(arr, x)))
         elif func == 3:
             print("x (mindestens) eingeben:")
             x = int(input())
             print("y (höchstens) eingeben:")
             y = int(input())
-            print("P(höchstens {}) = {}".format(x, mp.binminhoe(arr, x, y)))
+            print("P(mindestens {} / höchstens {}) = {} (marcpy.binminhoe(arr, x, y))".format(x, y, mp.binminhoe(arr, x, y)))
         else:
             return
 
@@ -235,9 +235,9 @@ def geomverteilt():
     else:
         p = float(inp)
 
-    print("Geometrisch verteilt P(X = {}):{}".format(x, mp.geomverteilt(x, p)))
-    print("Geometrisch Erwartungswert:", mp.geomerwartung(p))
-    print("Geometrisch Varianz:", mp.geomvar(p))
+    print("Geometrisch verteilt P(X = {}):{} (marcpy.geomverteilt(x, p))".format(x, mp.geomverteilt(x, p)))
+    print("Geometrisch Erwartungswert (marcpy.geomerwartung(p)):", mp.geomerwartung(p))
+    print("Geometrisch Varianz (marcpy.geomvar(p)):", mp.geomvar(p))
 
 
 def poissonverteilt():
@@ -253,7 +253,7 @@ def poissonverteilt():
     print("x eingeben:")
     x = int(input())
 
-    print("poissonverteilt P(X = {}) = {}".format(x, mp.poissonverteilt(x, lbd)))
+    print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x, lbd)))
     print("Poisson Erwartungswert = Lambda:", lbd)
     print("Poisson Varianz = Lambda:", lbd)
 
@@ -264,7 +264,7 @@ def poissonverteilt():
         if yes_no == "j" or yes_no == "J":
             print("x eingeben:")
             x = int(input())
-            print("poissonverteilt P(X = {}) = {}".format(x, mp.poissonverteilt(x, lbd)))
+            print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x, lbd)))
         else:
             return
 
