@@ -1,72 +1,57 @@
 import marcpy as mp
 
 
-def mean():
-    print("Array für Mittelwert eingeben: ")
+def einzelwerte():
+    print("Array eingeben:")
     arr = input()
     arr = list(map(int, arr.split(' ')))
     print("Mittelwert: ", mp.mean(arr))
-
-
-def median():
-    print("Array für Median eingeben: ")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
     print("Median: ", mp.median(arr))
-
-
-def mode():
-    print("Array für Modalwert eingeben: ")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
     print("Modalwert(e): ", mp.mode(arr))
+    print("Interquartilabstand: ", mp.interquartilediff(arr))
+    print("Spannweite: ", mp.span(arr))
+    print("Standardabweichung: ", mp.std(arr))
+    print("Varianz: ", mp.var(arr))
+    abs_haeufigkeit(arr)
+    rel_haeufigkeit(arr)
+    kum_haeufigkeit(arr)
+
+    loop = 1
+    while loop == 1:
+        print("\nWeitere Berechnungen mit diesem Array?\nJ: ja\nN: nein")
+        yes_no = input()
+        if yes_no == 'J' or yes_no == 'j':
+            print("1: Quantile/Percentile\n2: Korrelationskoeffizient")
+            func = int(input())
+            if func == 1:
+                percentile(arr)
+            if func == 2:
+                corrcoef(arr)
+        else:
+            break
 
 
-def percentile():
-    print("Array für Quantile/Percentile eingeben: ")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
+def percentile(arr):
+    if arr == 0:
+        print("Array für Quantile/Percentile eingeben: ")
+        arr = input()
+        arr = list(map(int, arr.split(' ')))
+
     print("Prozentzahl eingeben: ")
     pct = int(input())
-    print(pct, " Percentile: ", mp.percentile(arr, pct))
+    print(pct, "% Percentile: ", mp.percentile(arr, pct))
 
 
-def interquartilediff():
-    print("Array für Interquartilabstand eingeben: ")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
-    print("Interquartilabstand: ", mp.interquartilediff(arr))
+def corrcoef(arr):
+    if arr == 0:
+        print("Array 1 für Korrelationskoeffizienten eingeben:")
+        arr = input()
+        arr = list(map(int, arr.split(' ')))
 
-
-def span():
-    print("Array für Spannweite eingeben: ")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
-    print("Spannweite: ", mp.span(arr))
-
-
-def std():
-    print("Array für Standardabweichung eingeben: ")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
-    print("Standardabweichung: ", mp.std(arr))
-
-
-def var():
-    print("Array für Varianz eingeben:")
-    arr = input()
-    arr = list(map(int, arr.split(' ')))
-    print("Varianz: ", mp.var(arr))
-
-
-def corrcoef():
-    print("Array 1 für Korrelationskoeffizienten eingeben:")
-    arr1 = input()
-    arr1 = list(map(int, arr1.split(' ')))
     print("Array 2 für Korrelationskoeffizienten eingeben:")
     arr2 = input()
     arr2 = list(map(int, arr2.split(' ')))
-    print("Korrelationskoeffizient: ", mp.corrcoef(arr1, arr2))
+    print("Korrelationskoeffizient: ", mp.corrcoef(arr, arr2))
 
 
 def fak():
@@ -284,42 +269,29 @@ def poissonverteilt():
             return
 
 
-print('Funktion auswählen:\n1: Mittelwert\n2: Median\n3: Modalwert'
-      '\n4: Quantile/Percentile\n5: Interquartilabstand'
-      '\n6: Spannweite\n7: empirische Standardabweichung'
-      '\n8: Varianz\n9: Korrelationskoeffizient\n10: Fakultät'
-      '\n11: lineare Reggressionsfunktion\n12: Häufigkeiten (absolut, relativ, kumuliert)'
-      '\n13: Verteilung')
+print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'
+      '/Interquartilabstand/Spannweite/empirische Standardabweichung'
+      '/Varianz\n2: Quantile/Percentile\n3: Korrelationskoeffizient\n4: Fakultät'
+      '\n5: lineare Reggressionsfunktion\n6: Häufigkeiten (absolut, relativ, kumuliert)'
+      '\n7: Verteilung')
 
 # Arrays werden in den Funktionen zu Numpy Arrays konvertiert,
 # können also als normale Listen übergeben werden!
 func_code = int(input())
 
 if func_code == 1:
-    mean()
+    einzelwerte()
 elif func_code == 2:
-    median()
+    percentile(0)
 elif func_code == 3:
-    mode()
+    corrcoef(0)
 elif func_code == 4:
-    percentile()
-elif func_code == 5:
-    interquartilediff()
-elif func_code == 6:
-    span()
-elif func_code == 7:
-    std()
-elif func_code == 8:
-    var()
-elif func_code == 9:
-    corrcoef()
-elif func_code == 10:
     fak()
-elif func_code == 11:
+elif func_code == 5:
     plotlinregress()
-elif func_code == 12:
+elif func_code == 6:
     haeufigkeit()
-elif func_code == 13:
+elif func_code == 7:
     verteilung()
 else:
     print("Funktion nicht verfügbar")
