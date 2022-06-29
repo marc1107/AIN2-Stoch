@@ -5,23 +5,30 @@ def einzelwerte():
     print("Array eingeben:")
     arr = input()
     arr = list(map(int, arr.split(' ')))
-    print("Mittelwert (marcpy.mean(arr)): ", mp.mean(arr))
-    print("Median (marcpy.median(arr)): ", mp.median(arr))
-    print("Modalwert (marcpy.mode(arr)): ", mp.mode(arr))
-    print("Interquartilabstand (marcpy.interquartilefiff(arr)): ", mp.interquartilediff(arr))
-    print("Spannweite (marcpy.span(arr)): ", mp.span(arr))
-    print("Standardabweichung (marcpy.std(arr)): ", mp.std(arr))
-    print("Varianz (marcpy.var()): ", mp.var(arr))
-    abs_haeufigkeit(arr)
-    rel_haeufigkeit(arr)
-    kum_haeufigkeit(arr)
+    arrtemp = []
+    for i in arr:
+        arrtemp.append(i)
+
+    print("Mittelwert (marcpy.mean(arr)): ", mp.mean(arrtemp))
+    print("Median (marcpy.median(arr)): ", mp.median(arrtemp))
+    print("Modalwert (marcpy.mode(arr)): ", mp.mode(arrtemp))
+    print("Interquartilabstand (marcpy.interquartilefiff(arr)): ", mp.interquartilediff(arrtemp))
+    print("Spannweite (marcpy.span(arr)): ", mp.span(arrtemp))
+    print("Standardabweichung (marcpy.std(arr)): ", mp.std(arrtemp))
+    print("Varianz (marcpy.var()): ", mp.var(arrtemp))
+    print(25, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrtemp, 25))
+    print(50, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrtemp, 50))
+    print(75, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrtemp, 75))
+    abs_haeufigkeit(arrtemp)
+    rel_haeufigkeit(arrtemp)
+    kum_haeufigkeit(arrtemp)
 
     loop = 1
     while loop == 1:
         print("\nWeitere Berechnungen mit diesem Array?\nJ: ja\nN: nein")
         yes_no = input()
         if yes_no == 'J' or yes_no == 'j':
-            print("1: Quantile/Percentile\n2: Korrelationskoeffizient")
+            print("1: Quantile\n2: Korrelationskoeffizient")
             func = int(input())
             if func == 1:
                 percentile(arr)
@@ -33,13 +40,13 @@ def einzelwerte():
 
 def percentile(arr):
     if arr == 0:
-        print("Array für Quantile/Percentile eingeben: ")
+        print("Array für Quantile eingeben: ")
         arr = input()
         arr = list(map(int, arr.split(' ')))
 
     print("Prozentzahl eingeben: ")
     pct = int(input())
-    print(pct, "% Percentile (marcpy.percentile(arr, pct)): ", mp.percentile(arr, pct))
+    print(pct, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arr, pct))
 
 
 def corrcoef(arr):
@@ -51,6 +58,8 @@ def corrcoef(arr):
     print("Array 2 für Korrelationskoeffizienten eingeben:")
     arr2 = input()
     arr2 = list(map(int, arr2.split(' ')))
+    print("Array 1:", arr)
+    print("Array 2:", arr2)
     print("Korrelationskoeffizient (marcpy.corrcoef(arr1, arr2)): ", mp.corrcoef(arr, arr2))
 
 
@@ -271,7 +280,7 @@ def poissonverteilt():
 
 print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'
       '/Interquartilabstand/Spannweite/empirische Standardabweichung'
-      '/Varianz\n2: Quantile/Percentile\n3: Korrelationskoeffizient\n4: Fakultät'
+      '/Varianz\n2: Quantile\n3: Korrelationskoeffizient\n4: Fakultät'
       '\n5: lineare Reggressionsfunktion\n6: Häufigkeiten (absolut, relativ, kumuliert)'
       '\n7: Verteilung')
 
