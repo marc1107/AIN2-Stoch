@@ -226,7 +226,8 @@ def geomerwartung(p: float):
 
 
 def geomvar(p: float):
-    return (1 - p) / math.sqrt(p)
+    q = 1 - p
+    return q / (p**2)
 
 
 def poissonverteilt(x: int, lbd):
