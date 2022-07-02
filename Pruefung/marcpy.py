@@ -188,7 +188,8 @@ def binerwartung(n: int, p: float):
 
 
 def binvar(n: int, p: float):
-    return n * p * (1 - p)
+    q = 1 - p
+    return n * p * q
 
 
 def binmindestens(arr, x: int):
@@ -209,6 +210,9 @@ def binhoechstens(arr, x: int):
 
 def binminhoe(arr, x: int, y: int):
     result = 0
+    # arr ist ein 2-dimensionales Array.
+    # An erster Stelle steht 0 bis n und an zweiter Stelle das zugehörige Ergebnis
+    print(arr)
     for pack in arr:
         if x <= pack[0] <= y:
             result += pack[1]
@@ -234,3 +238,56 @@ def poissonverteilt(x: int, lbd):
     e = math.e
     return pow(lbd, x) / fak(x) * pow(e, -lbd)
 
+
+def gleichverteilt(a: float, b: float, x: float):
+    if a <= x <= b:
+        return 1 / (b - a)
+    else:
+        return 0
+
+def gleicherwartung(a: float, b: float):
+    return (a + b) / 2
+
+
+def gleichvar(a: float, b: float):
+    return (b - a)**2 / 12
+
+
+def expverteilt(lbd: float, x: float):
+    if x >= 0:
+        e = math.e
+        return lbd * pow(e, -lbd * x)
+    return 0
+
+
+def expverteiltF(lbd: float, x: float):
+    if x >= 0:
+        e = math.e
+        return 1 - pow(e, -lbd * x)
+    return 0
+
+
+def experwartung(lbd: float):
+    return 1 / lbd
+
+
+def expvar(lbd: float):
+    return 1 / (lbd**2)
+
+
+def normalverteilt(u, o, x):
+    e = math.e
+    pi = math.pi
+    return 1 / (o * math.sqrt(2 * pi)) * pow(e, -0.5 * ((x - u) / o) ** 2)
+
+
+def normalverteiltF(u, o, x):
+    return scipy.stats.norm.cdf(x, u, o)
+
+
+def normalerwartung(u):
+    return u
+
+
+def normalvar(o):
+    return o**2

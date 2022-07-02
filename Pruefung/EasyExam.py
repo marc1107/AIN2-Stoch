@@ -140,7 +140,8 @@ def haeufigkeit():
 def verteilung():
     print("Was soll berechnet werden?\n1: Bernoulli-verteilt"
           "\n2: Binomialkoeffizient\n3: binomial-verteilt"
-          "\n4: geometrisch-verteilt\n5: poisson-verteilt")
+          "\n4: geometrisch-verteilt\n5: poisson-verteilt"
+          "\n6: gleichverteilt\n7: exponentialverteilt\n8: normalverteilt\n")
     func = int(input())
 
     if func == 1:
@@ -153,6 +154,12 @@ def verteilung():
         geomverteilt()
     elif func == 5:
         poissonverteilt()
+    elif func == 6:
+        gleichverteilt()
+    elif func == 7:
+        exponentialverteilt()
+    elif func == 8:
+        normalverteilt()
     else:
         print("Wrong function")
         return
@@ -216,17 +223,18 @@ def binomialverteilt():
         if func == 1:
             print("x eingeben:")
             x = int(input())
-            print("P(mindestens {}) = {} (marcpy.binmindestens(arr, x))".format(x, mp.binmindestens(arr, x)))
+            print("P(X >= {}) = {} (marcpy.binmindestens(arr, x))".format(x, mp.binmindestens(arr, x)))
         elif func == 2:
             print("x eingeben:")
             x = int(input())
-            print("P(höchstens {}) = {} (marcpy.binhoechtsens(arr, x))".format(x, mp.binhoechstens(arr, x)))
+            print("P(X <= {}) = {} (marcpy.binhoechtsens(arr, x))".format(x, mp.binhoechstens(arr, x)))
         elif func == 3:
             print("x (mindestens) eingeben:")
             x = int(input())
             print("y (höchstens) eingeben:")
             y = int(input())
-            print("P(mindestens {} / höchstens {}) = {} (marcpy.binminhoe(arr, x, y))".format(x, y, mp.binminhoe(arr, x, y)))
+            print("P(mindestens {} / höchstens {}) = {} (marcpy.binminhoe(arr, x, y))".format(x, y,
+                                                                                              mp.binminhoe(arr, x, y)))
         else:
             return
 
@@ -260,7 +268,12 @@ def poissonverteilt():
         return
 
     print("x eingeben:")
-    x = int(input())
+    inp = input()
+    if "/" in inp:
+        index = inp.find("/")
+        x = float(inp[0: index]) / float(inp[index + 1: len(inp)])
+    else:
+        x = float(inp)
 
     print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x, lbd)))
     print("Poisson Erwartungswert = Lambda:", lbd)
@@ -273,9 +286,65 @@ def poissonverteilt():
         if yes_no == "j" or yes_no == "J":
             print("x eingeben:")
             x = int(input())
-            print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x, lbd)))
+            print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x,
+                                                                                                                    lbd)))
         else:
             return
+
+
+def gleichverteilt():
+    print("a eingeben:")
+    a = float(input())
+    print("b eingeben:")
+    b = float(input())
+    print("x eingeben:")
+    x = float(input())
+
+    print("gleichverteilt (a = {}, b = {}, x = {}) = {} (marcpy.gleichverteilt({}, {}, {}))".format(a, b, x,
+                                                                                                    mp.gleichverteilt(a,
+                                                                                                                      b,
+                                                                                                                      x),
+                                                                                                    a, b, x))
+    print("E[X] = {} (marcpy.gleicherwartung({}, {}))".format(mp.gleicherwartung(a, b), a, b))
+    print("Var[X] = {} (marcpy.gleichvar({}, {}))".format(mp.gleichvar(a, b), a, b))
+
+
+def exponentialverteilt():
+    print("Lambda eingeben:")
+    lbd = float(input())
+    print("x eingeben:")
+    x = float(input())
+
+    print("Exponentialverteilt f({}) = {} (marcpy.expverteilt({}, {}))".format(x, mp.expverteilt(lbd, x), lbd, x))
+    print("P(X <= {}) = {} (marcpy.expverteiltF({}, {}))".format(x, mp.expverteiltF(lbd, x), lbd, x))
+    print("E[X] = {} (marcpy.experwartung({}))".format(mp.experwartung(lbd), lbd))
+    print("Var[X] = {} (marcpy.expvar({}))".format(mp.expvar(lbd), lbd))
+
+
+def normalverteilt():
+    print("u (Erwartungswert) eingeben:")
+    u = float(input())
+    print("o (Standardabweichung) eingeben:")
+    o = float(input())
+    print("x eingeben:")
+    x = float(input())
+
+    print("Normalverteilung f({}) = {} (marcpy.normalverteilt({}, {}, {}))".format(x, mp.normalverteilt(u, o, x), u, o,
+                                                                                   x))
+    print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(u, o, x), u, o, x))
+    print("E[X] = {} (marcpy.normalerwartung({}))".format(mp.normalerwartung(u), u))
+    print("Var[X] = {} (marcpy.normalvar({}))".format(mp.normalvar(0), o))
+
+    loop = 1
+    while loop == 1:
+        print("Weiteres x berechnen?\nj: ja\nn: nein")
+        yes_no = input()
+        if yes_no == 'J' or yes_no == 'j':
+            print("x eingeben:")
+            x = float(input())
+            print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(u, o, x), u, o, x))
+        else:
+            break
 
 
 print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'
