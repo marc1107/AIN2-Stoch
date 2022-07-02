@@ -11,9 +11,11 @@ print(scipy.stats.norm.pdf([250], 300, 50))
 
 print(scipy.stats.norm.cdf(110, 100, 15) - scipy.stats.norm.cdf(100, 100, 15))
 
+
+print("e)")
+x = 0
 for i in range(1, 100):
-    print(mp.binhoechstens(mp.binomialverteilt(11, 0.55), i))
-    if mp.binhoechstens(mp.binomialverteilt(11, 0.55), i) >= 1:
-        print("Test")
-        print(i)
+    x += mp.geomverteilt(i, 0.55)
+    if x >= 1:
+        print("i:", i)
         break

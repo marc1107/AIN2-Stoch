@@ -275,13 +275,13 @@ def expvar(lbd: float):
     return 1 / (lbd**2)
 
 
-def normalverteilt(u, o, x):
+def normalverteilt(x, u, o):
     e = math.e
     pi = math.pi
     return 1 / (o * math.sqrt(2 * pi)) * pow(e, -0.5 * ((x - u) / o) ** 2)
 
 
-def normalverteiltF(u, o, x):
+def normalverteiltF(x, u, o):
     return scipy.stats.norm.cdf(x, u, o)
 
 

@@ -329,9 +329,9 @@ def normalverteilt():
     print("x eingeben:")
     x = float(input())
 
-    print("Normalverteilung f({}) = {} (marcpy.normalverteilt({}, {}, {}))".format(x, mp.normalverteilt(u, o, x), u, o,
-                                                                                   x))
-    print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(u, o, x), u, o, x))
+    print("Normalverteilung f({}) = {} (marcpy.normalverteilt({}, {}, {}))".format(x, mp.normalverteilt(x, u, o), x, u,
+                                                                                   o))
+    print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(x, u, o), x, u, o))
     print("E[X] = {} (marcpy.normalerwartung({}))".format(mp.normalerwartung(u), u))
     print("Var[X] = {} (marcpy.normalvar({}))".format(mp.normalvar(0), o))
 
