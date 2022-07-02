@@ -268,14 +268,10 @@ def poissonverteilt():
         return
 
     print("x eingeben:")
-    inp = input()
-    if "/" in inp:
-        index = inp.find("/")
-        x = float(inp[0: index]) / float(inp[index + 1: len(inp)])
-    else:
-        x = float(inp)
+    x = int(input())
 
     print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x, lbd)))
+    print("poissonverteilt P(X <= {}) = {} (marcpy.poissonverteiltF(x, lambda))".format(x, mp.poissonverteiltF(x, lbd)))
     print("Poisson Erwartungswert = Lambda:", lbd)
     print("Poisson Varianz = Lambda:", lbd)
 
@@ -288,6 +284,7 @@ def poissonverteilt():
             x = int(input())
             print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x,
                                                                                                                     lbd)))
+            print("poissonverteilt P(X <= {}) = {} (marcpy.poissonverteiltF(x, lambda))".format(x, mp.poissonverteiltF(x, lbd)))
         else:
             return
 

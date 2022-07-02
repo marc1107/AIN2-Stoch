@@ -239,6 +239,10 @@ def poissonverteilt(x: int, lbd):
     return pow(lbd, x) / fak(x) * pow(e, -lbd)
 
 
+def poissonverteiltF(x: int, lbd):
+    return scipy.stats.poisson.cdf(x, lbd)
+
+
 def gleichverteilt(a: float, b: float, x: float):
     if a <= x <= b:
         return 1 / (b - a)
