@@ -369,6 +369,32 @@ def nueberk():
     print("{} ueber {} = {} (marcpy.nueberk({}, {}))".format(n, k, mp.nueberk(n, k), n, k))
 
 
+def zaehlverfahren():
+    print("n eingeben:")
+    n = int(input())
+    print("k eingeben:")
+    k = int(input())
+
+    print("Werden alle Elemente angeordnet?\nj: ja\n: nein")
+    yes_no = input()
+    if yes_no == 'J' or yes_no == 'j':
+        print("Ist die Reihenfolge wichtig?\nj: ja\n: nein")
+        yes_no = input()
+        if yes_no == 'J' or yes_no == 'j':
+            print("Mit Wiederhgolung?\nj: ja\n: nein")
+            if yes_no == 'J' or yes_no == 'j':
+                print("Ergebnis: {}".format(n**k))
+            else:
+                print("Ergebnis: {}".format(mp.fak(n) / mp.fak(n - k)))
+        else:
+            print("Mit Wiederhgolung?\nj: ja\n: nein")
+            if yes_no == 'J' or yes_no == 'j':
+                print("Ergebnis: {}".format(mp.nueberk(n, k)))
+            else:
+                print("Ergebnis: {}".format(mp.nueberk(n + k - 1, k)))
+
+
+
 print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'
       '/Interquartilabstand/Spannweite/empirische Standardabweichung'
       '/Varianz\n2: Quantile\n3: Korrelationskoeffizient\n4: Fakultät'
