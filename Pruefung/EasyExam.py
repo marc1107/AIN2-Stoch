@@ -382,12 +382,14 @@ def zaehlverfahren():
         yes_no = input()
         if yes_no == 'J' or yes_no == 'j':
             print("Mit Wiederhgolung?\nj: ja\nn: nein")
+            yes_no = input()
             if yes_no == 'J' or yes_no == 'j':
                 print("Ergebnis: {}".format(n**k))
             else:
                 print("Ergebnis: {}".format(mp.fak(n) / mp.fak(n - k)))
         else:
             print("Mit Wiederhgolung?\nj: ja\nn: nein")
+            yes_no = input()
             if yes_no == 'J' or yes_no == 'j':
                 print("Ergebnis: {}".format(mp.nueberk(n, k)))
             else:
