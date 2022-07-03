@@ -31,5 +31,12 @@ for i in range(1, 300):
 print("Normal:")
 print(scipy.stats.norm.ppf(0.9, 130, 15))
 
+print("Welcher Wert wird nicht überschritten?")
+for i in range(3, 100):
+    if mp.expverteiltF(0.2, i) >= 0.9:
+        print(i)
+        print(mp.expverteiltF(0.2, i))
+        break
+
 print("Pruefung:")
 
