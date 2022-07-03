@@ -377,7 +377,7 @@ def zaehlverfahren():
 
     print("Werden alle Elemente angeordnet?\nj: ja\nn: nein")
     yes_no = input()
-    if yes_no == 'J' or yes_no == 'j':
+    if yes_no == 'N' or yes_no == 'n':
         print("Ist die Reihenfolge wichtig?\nj: ja\nn: nein")
         yes_no = input()
         if yes_no == 'J' or yes_no == 'j':

@@ -249,6 +249,16 @@ def gleichverteilt(a: float, b: float, x: float):
     else:
         return 0
 
+
+def gleichverteiltF(a: float, b: float, x: float):
+    if x < a:
+        return 0
+    elif a <= x <= b:
+        return (x - a) / (b - a)
+    else:
+        return 1
+
+
 def gleicherwartung(a: float, b: float):
     return (a + b) / 2
 
