@@ -359,11 +359,21 @@ def normalverteilt():
             break
 
 
+def nueberk():
+    print("n ueber k")
+    print("n eingeben:")
+    n = int(input())
+    print("k eingeben:")
+    k = int(input())
+
+    print("{} ueber {} = {} (marcpy.nueberk({}, {}))".format(n, k, mp.nueberk(n, k), n, k))
+
+
 print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'
       '/Interquartilabstand/Spannweite/empirische Standardabweichung'
       '/Varianz\n2: Quantile\n3: Korrelationskoeffizient\n4: Fakultät'
       '\n5: lineare Reggressionsfunktion\n6: Häufigkeiten (absolut, relativ, kumuliert)'
-      '\n7: Verteilung')
+      '\n7: Verteilung\n8: n über k')
 
 # Arrays werden in den Funktionen zu Numpy Arrays konvertiert,
 # können also als normale Listen übergeben werden!
@@ -383,5 +393,7 @@ elif func_code == 6:
     haeufigkeit()
 elif func_code == 7:
     verteilung()
+elif func_code == 8:
+    nueberk()
 else:
     print("Funktion nicht verfügbar")

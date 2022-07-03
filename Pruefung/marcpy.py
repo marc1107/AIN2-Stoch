@@ -47,7 +47,7 @@ def corrcoef(arr1, arr2):
     return np.corrcoef(arr1, arr2)
 
 
-def fak(n: int, x: int):
+def fak(n: int):
     if n > 0:
         return n * fak(n - 1)
     else:
@@ -295,3 +295,7 @@ def normalerwartung(u):
 
 def normalvar(o):
     return o**2
+
+
+def nueberk(n: int, k: int):
+    return fak(n) / fak(k) * fak(n - k)
