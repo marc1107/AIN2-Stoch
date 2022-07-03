@@ -21,7 +21,6 @@ for i in range(1, 100):
         print("i:", i)
         break
 
-#scipy.stats.poisson()
 
 print("c)")
 for i in range(1, 300):

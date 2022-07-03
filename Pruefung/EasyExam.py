@@ -45,7 +45,7 @@ def percentile(arr):
         arr = list(map(int, arr.split(' ')))
 
     print("Prozentzahl eingeben: ")
-    pct = int(input())
+    pct = float(input())
     print(pct, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arr, pct))
 
 

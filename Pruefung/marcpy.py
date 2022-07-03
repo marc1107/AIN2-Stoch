@@ -19,7 +19,7 @@ def mode(arr):
     return stats.multimode(arr)
 
 
-def percentile(arr, p: int):
+def percentile(arr, p: float):
     return np.percentile(arr, p)
 
 
