@@ -380,7 +380,7 @@ def zaehlverfahren():
         print("Ist die Reihenfolge wichtig?\nj: ja\nn: nein")
         yes_no = input()
         if yes_no == 'J' or yes_no == 'j':
-            print("Mit Wiederhgolung?\nj: ja\nn: nein")
+            print("Mit Wiederholung?\nj: ja\nn: nein")
             yes_no = input()
             if yes_no == 'J' or yes_no == 'j':
                 print("Ergebnis: {}".format(n**k))
