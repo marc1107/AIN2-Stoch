@@ -28,5 +28,8 @@ for i in range(1, 300):
         print(i)
         break
 
+print("Exponential:")
+print(mp.expverteiltF(7, 1/7))
+
 print("Pruefung:")
 

@@ -316,8 +316,6 @@ def exponentialverteilt():
     else:
         lbd = float(inp)
 
-    lbd = 1/lbd
-
     print("x eingeben:")
     inp = input()
 
@@ -327,6 +325,7 @@ def exponentialverteilt():
     else:
         x = float(inp)
 
+    print("X:", x)
     print("Exponentialverteilt f({}) = {} (marcpy.expverteilt({}, {}))".format(x, mp.expverteilt(lbd, x), lbd, x))
     print("P(X <= {}) = {} (marcpy.expverteiltF({}, {}))".format(x, mp.expverteiltF(lbd, x), lbd, x))
     print("E[X] = {} (marcpy.experwartung({}))".format(mp.experwartung(lbd), lbd))
