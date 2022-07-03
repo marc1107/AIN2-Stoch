@@ -236,7 +236,7 @@ def binomialverteilt():
             print("P(mindestens {} / höchstens {}) = {} (marcpy.binminhoe(arr, x, y))".format(x, y,
                                                                                               mp.binminhoe(arr, x, y)))
         else:
-            return
+            break
 
 
 def geomverteilt():
@@ -308,9 +308,24 @@ def gleichverteilt():
 
 def exponentialverteilt():
     print("Lambda eingeben:")
-    lbd = float(input())
+    inp = input()
+
+    if "/" in inp:
+        index = inp.find("/")
+        lbd = float(inp[0: index]) / float(inp[index + 1: len(inp)])
+    else:
+        lbd = float(inp)
+
+    lbd = 1/lbd
+
     print("x eingeben:")
-    x = float(input())
+    inp = input()
+
+    if "/" in inp:
+        index = inp.find("/")
+        x = float(inp[0: index]) / float(inp[index + 1: len(inp)])
+    else:
+        x = float(inp)
 
     print("Exponentialverteilt f({}) = {} (marcpy.expverteilt({}, {}))".format(x, mp.expverteilt(lbd, x), lbd, x))
     print("P(X <= {}) = {} (marcpy.expverteiltF({}, {}))".format(x, mp.expverteiltF(lbd, x), lbd, x))
@@ -339,7 +354,7 @@ def normalverteilt():
         if yes_no == 'J' or yes_no == 'j':
             print("x eingeben:")
             x = float(input())
-            print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(u, o, x), u, o, x))
+            print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(x, u, o), x, u, o))
         else:
             break
 

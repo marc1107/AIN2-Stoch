@@ -21,4 +21,13 @@ for i in range(1, 100):
         print("i:", i)
         break
 
-scipy.stats.poisson()
+#scipy.stats.poisson()
+
+print("c)")
+for i in range(1, 300):
+    if 1 - mp.normalverteiltF(i, 130, 15) <= 0.1:
+        print(i)
+        break
+
+print("Pruefung:")
+
