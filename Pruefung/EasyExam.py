@@ -4,24 +4,28 @@ import marcpy as mp
 def einzelwerte():
     print("Array eingeben:")
     arr = input()
-    arr = list(map(int, arr.split(' ')))
-    arrtemp = []
-    for i in arr:
-        arrtemp.append(i)
+    # arr = list(map(int, arr.split(' ')))
+    arrf = list(map(float, arr.split(' ')))
+    # arrtemp = []
+    arrftemp = []
+    # for i in arr:
+    # arrtemp.append(i)
+    for i in arrf:
+        arrftemp.append(i)
 
-    print("Mittelwert (marcpy.mean(arr)): ", mp.mean(arrtemp))
-    print("Median (marcpy.median(arr)): ", mp.median(arrtemp))
-    print("Modalwert (marcpy.mode(arr)): ", mp.mode(arrtemp))
-    print("Interquartilabstand (marcpy.interquartilefiff(arr)): ", mp.interquartilediff(arrtemp))
-    print("Spannweite (marcpy.span(arr)): ", mp.span(arrtemp))
-    print("Standardabweichung (marcpy.std(arr)): ", mp.std(arrtemp))
-    print("Varianz (marcpy.var()): ", mp.var(arrtemp))
-    print(25, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrtemp, 25))
-    print(50, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrtemp, 50))
-    print(75, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrtemp, 75))
-    abs_haeufigkeit(arrtemp)
-    rel_haeufigkeit(arrtemp)
-    kum_haeufigkeit(arrtemp)
+    print("Mittelwert (marcpy.mean(arr)): ", mp.mean(arrftemp))
+    print("Median (marcpy.median(arr)): ", mp.median(arrftemp))
+    print("Modalwert (marcpy.mode(arr)): ", mp.mode(arrftemp))
+    print("Interquartilabstand (marcpy.interquartilefiff(arr)): ", mp.interquartilediff(arrftemp))
+    print("Spannweite (marcpy.span(arr)): ", mp.span(arrftemp))
+    print("Standardabweichung (marcpy.std(arr)): ", mp.std(arrftemp))
+    print("Varianz (marcpy.var()): ", mp.var(arrftemp))
+    print(25, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrftemp, 25))
+    print(50, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrftemp, 50))
+    print(75, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrftemp, 75))
+    abs_haeufigkeit(arrftemp)
+    rel_haeufigkeit(arrftemp)
+    kum_haeufigkeit(arrftemp)
 
     loop = 1
     while loop == 1:
@@ -31,9 +35,9 @@ def einzelwerte():
             print("1: Quantile\n2: Korrelationskoeffizient")
             func = int(input())
             if func == 1:
-                percentile(arr)
+                percentile(arrf)
             if func == 2:
-                corrcoef(arr)
+                corrcoef(arrf)
         else:
             break
 
@@ -57,7 +61,7 @@ def corrcoef(arr):
 
     print("Array 2 für Korrelationskoeffizienten eingeben:")
     arr2 = input()
-    arr2 = list(map(int, arr2.split(' ')))
+    arr2 = list(map(float, arr2.split(' ')))
     print("Array 1:", arr)
     print("Array 2:", arr2)
     print("Korrelationskoeffizient (marcpy.corrcoef(arr1, arr2)): ", mp.corrcoef(arr, arr2))
@@ -284,7 +288,9 @@ def poissonverteilt():
             x = int(input())
             print("poissonverteilt P(X = {}) = {} (marcpy.poissonverteilt(x, lambda))".format(x, mp.poissonverteilt(x,
                                                                                                                     lbd)))
-            print("poissonverteilt P(X <= {}) = {} (marcpy.poissonverteiltF(x, lambda))".format(x, mp.poissonverteiltF(x, lbd)))
+            print("poissonverteilt P(X <= {}) = {} (marcpy.poissonverteiltF(x, lambda))".format(x,
+                                                                                                mp.poissonverteiltF(x,
+                                                                                                                    lbd)))
         else:
             return
 
@@ -353,7 +359,8 @@ def normalverteilt():
         if yes_no == 'J' or yes_no == 'j':
             print("x eingeben:")
             x = float(input())
-            print("P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(x, u, o), x, u, o))
+            print(
+                "P(X <= {}) = {} (marcpy.normalverteiltF({}, {}, {}))".format(x, mp.normalverteiltF(x, u, o), x, u, o))
         else:
             break
 
@@ -383,7 +390,7 @@ def zaehlverfahren():
             print("Mit Wiederholung?\nj: ja\nn: nein")
             yes_no = input()
             if yes_no == 'J' or yes_no == 'j':
-                print("Ergebnis: {}".format(n**k))
+                print("Ergebnis: {}".format(n ** k))
             else:
                 print("Ergebnis: {}".format(mp.fak(n) / mp.fak(n - k)))
         else:
@@ -395,7 +402,6 @@ def zaehlverfahren():
                 print("Ergebnis: {}".format(mp.nueberk(n + k - 1, k)))
     else:
         print("Ergebnis: {}".format(mp.fak(n)))
-
 
 
 print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'

@@ -28,8 +28,8 @@ for i in range(1, 300):
         print(i)
         break
 
-print("Exponential:")
-print(mp.expverteiltF(7, 1/7))
+print("Normal:")
+print(scipy.stats.norm.ppf(0.9, 130, 15))
 
 print("Pruefung:")
 
