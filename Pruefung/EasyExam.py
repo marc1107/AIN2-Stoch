@@ -13,12 +13,12 @@ def einzelwerte():
     for i in arrf:
         arrftemp.append(i)
 
-    print("Mittelwert (marcpy.mean(arr)): ", mp.mean(arrftemp))
+    print("Arithmetisches Mittel (marcpy.mean(arr)): ", mp.mean(arrftemp))
     print("Median (marcpy.median(arr)): ", mp.median(arrftemp))
     print("Modalwert (marcpy.mode(arr)): ", mp.mode(arrftemp))
     print("Interquartilabstand (marcpy.interquartilefiff(arr)): ", mp.interquartilediff(arrftemp))
     print("Spannweite (marcpy.span(arr)): ", mp.span(arrftemp))
-    print("Standardabweichung (marcpy.std(arr)): ", mp.std(arrftemp))
+    print("Empirische Standardabweichung (marcpy.std(arr)): ", mp.std(arrftemp))
     print("Varianz (marcpy.var()): ", mp.var(arrftemp))
     print(25, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrftemp, 25))
     print(50, "% Quantil (marcpy.percentile(arr, pct)): ", mp.percentile(arrftemp, 50))
