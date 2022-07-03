@@ -399,7 +399,7 @@ print('Funktion auswählen:\n1: Mittelwert/Median/Modalwert'
       '/Interquartilabstand/Spannweite/empirische Standardabweichung'
       '/Varianz\n2: Quantile\n3: Korrelationskoeffizient\n4: Fakultät'
       '\n5: lineare Reggressionsfunktion\n6: Häufigkeiten (absolut, relativ, kumuliert)'
-      '\n7: Verteilung\n8: n über k')
+      '\n7: Verteilung\n8: Zählverfahren\n9: n über k')
 
 # Arrays werden in den Funktionen zu Numpy Arrays konvertiert,
 # können also als normale Listen übergeben werden!
@@ -420,6 +420,8 @@ elif func_code == 6:
 elif func_code == 7:
     verteilung()
 elif func_code == 8:
+    zaehlverfahren()
+elif func_code == 9:
     nueberk()
 else:
     print("Funktion nicht verfügbar")
