@@ -375,23 +375,25 @@ def zaehlverfahren():
     print("k eingeben:")
     k = int(input())
 
-    print("Werden alle Elemente angeordnet?\nj: ja\n: nein")
+    print("Werden alle Elemente angeordnet?\nj: ja\nn: nein")
     yes_no = input()
     if yes_no == 'J' or yes_no == 'j':
-        print("Ist die Reihenfolge wichtig?\nj: ja\n: nein")
+        print("Ist die Reihenfolge wichtig?\nj: ja\nn: nein")
         yes_no = input()
         if yes_no == 'J' or yes_no == 'j':
-            print("Mit Wiederhgolung?\nj: ja\n: nein")
+            print("Mit Wiederhgolung?\nj: ja\nn: nein")
             if yes_no == 'J' or yes_no == 'j':
                 print("Ergebnis: {}".format(n**k))
             else:
                 print("Ergebnis: {}".format(mp.fak(n) / mp.fak(n - k)))
         else:
-            print("Mit Wiederhgolung?\nj: ja\n: nein")
+            print("Mit Wiederhgolung?\nj: ja\nn: nein")
             if yes_no == 'J' or yes_no == 'j':
                 print("Ergebnis: {}".format(mp.nueberk(n, k)))
             else:
                 print("Ergebnis: {}".format(mp.nueberk(n + k - 1, k)))
+    else:
+        print("Ergebnis: {}".format(mp.fak(n)))
 
 
 
