@@ -23,8 +23,8 @@ for i in range(1, 100):
 
 
 print("c)")
-for i in range(1, 300):
-    if 1 - mp.normalverteiltF(i, 130, 15) <= 0.1:
+for i in range(650, 900):
+    if mp.normalverteiltF(i, 700, 50) <= 0.9:
         print(i)
         break
 
