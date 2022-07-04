@@ -8,6 +8,7 @@ def einzelwerte():
     arrf = list(map(float, arr.split(' ')))
     # arrtemp = []
     arrftemp = []
+
     # for i in arr:
     # arrtemp.append(i)
     for i in arrf:

@@ -28,6 +28,7 @@ for i in range(650, 900):
         print(i)
         break
 
+
 print("Normal:")
 print(scipy.stats.norm.ppf(0.9, 130, 15))
 
